@@ -58,7 +58,6 @@ const Row = ({
                 </button>
               ) : (
                 <>
-                  {" "}
                   <button className="py-1 px-2 sm:px-5 bg-green-50 border border-green-500 rounded-lg text-green-500 w-40">
                     Generated
                   </button>
@@ -69,12 +68,12 @@ const Row = ({
         </div>
       </td>
       <td className="flex gap-3 items-center px-2 py-5">
-        <Link href={`/tracker/updatelead/${lead_number}`}>
+        <Link to={`/tracker/updatelead/${lead_number}`}>
           <div className="py-2 px-2 border rounded-lg">
             <PencilSquareIcon className="w-5 h-5" />
           </div>
         </Link>
-        <Link href={`/tracker/view/${lead_number}`}>
+        <Link to={`/tracker/viewlead/${lead_number}`}>
           <div className="py-2 px-2 border rounded-lg">
             <EyeIcon className="w-5 h-5" />
           </div>

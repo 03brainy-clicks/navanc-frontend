@@ -10,6 +10,7 @@ import authAtom from "../recoil/atoms/authAtom";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import userAtom from "../recoil/atoms/userAtom";
+import Loader from "../components/ui/utils/Loader";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -76,7 +77,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button className="gradientBtn w-full" onClick={handleLogin}>
-                <div>{isLoading && "loading"}</div> Submit
+                <div>{isLoading && <Loader/>}</div> Submit
                 <div></div>
               </button>
             </form>

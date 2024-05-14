@@ -21,8 +21,11 @@ const App = () => {
               <Route element={<CreateLead />} path="/createLead" />
               <Route path="/tracker/*" element={<Dashboard />}>
                 <Route path="" element={<Leads />} />
-                <Route path="updatelead" element={<UpdateLead />} />
-                <Route path="viewlead" element={<ViewLead />} />
+                <Route
+                  path="updatelead/:lead_number"
+                  element={<UpdateLead />}
+                />
+                <Route path="viewlead/:lead_number" element={<ViewLead />} />
               </Route>
             </Routes>
           </Router>

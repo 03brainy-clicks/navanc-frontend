@@ -19,15 +19,16 @@ const QueryFn = async (token, role, user_id, setLeads) => {
 };
 
 const Table = () => {
-  const [filter, setFilter] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-  const [leads, setLeads] = useState([]);
   const { token, user_id, role } = useRecoilValue(authAtom);
+  const [leads, setLeads] = useState([]);
   const { isPending } = useQuery({
     queryKey: ["leadsData", token, user_id, role, setLeads],
     queryFn: () => QueryFn(token, role, user_id, setLeads),
   });
+  const [filter, setFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
 
   if (isPending) return "Loading";
 
