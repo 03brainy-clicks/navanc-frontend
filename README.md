@@ -1,7 +1,7 @@
 ```markdown
 # Navanc Frontend
 
-Welcome to the Navanc Frontend! This project is a simple web application built with Vite and React.
+Welcome to the Navanc Frontend! This project is a simple web application built with React, Vite, Recoil, Heroicons, TanStack Query, and Hot Toast, deployed on Vercel.
 
 ## Functionality
 
@@ -34,6 +34,16 @@ For testing purposes, you can use the following access credentials:
 ## Live Demo
 
 You can access the live demo of the Navanc Frontend application [here](https://navanc-frontend.vercel.app/).
+
+## Technology Stack
+
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A next-generation frontend tooling.
+- **Recoil**: A state management library for React applications.
+- **Heroicons**: A set of free MIT-licensed high-quality SVG icons.
+- **TanStack Query**: A data-fetching library for React.
+- **Hot Toast**: A toast notification library for React applications.
+- **Vercel**: A cloud platform for static sites and serverless functions.
 
 ## Getting Started
 
@@ -114,3 +124,5 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
+
+Feel free to customize the README further according to your project's specific details and requirements.
