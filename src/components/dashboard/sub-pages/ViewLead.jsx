@@ -26,11 +26,11 @@ const QueryFn = async (token, lead_number) => {
 const Page = () => {
   const { lead_number } = useParams();
   const { token } = useRecoilValue(authAtom);
-  const { isPending, error, data } = useQuery({
+  const { isPending, data } = useQuery({
     queryKey: ["getlead", token, lead_number],
     queryFn: () => QueryFn(token, lead_number),
   });
-  console.log(data);
+
   if (isPending) return <Loader />;
   return (
     <div className="flex-1 bg-[#f3f5fb] py-5 w-full min-h-full flex flex-col gap-5">

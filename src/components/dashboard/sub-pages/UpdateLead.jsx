@@ -29,7 +29,7 @@ const QueryFn = async (token, lead_number) => {
 const CreateLead = () => {
   const { lead_number } = useParams();
   const { token } = useRecoilValue(authAtom);
-  const { isPending, error, data } = useQuery({
+  const { isPending, data } = useQuery({
     queryKey: ["updatelead", token, lead_number ],
     queryFn: () => QueryFn(token, lead_number),
   });
