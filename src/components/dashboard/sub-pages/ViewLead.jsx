@@ -38,7 +38,7 @@ const Page = () => {
       <div className="px-10 pt-7 bg-whit w-full bg-white">
         <div className="flex gap-2 w-full justify-between items-start">
           <div>
-            <Link href={"/tracker"}>
+            <Link to={"/tracker"}>
               <ArrowLeftIcon className="w-5 h-5 mt-2" />
             </Link>
           </div>
