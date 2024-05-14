@@ -3,8 +3,7 @@ import React from "react";
 const TextField = ({ label, value, setValue, required = false, optional }) => {
   return (
     <fieldset className="rounded-lg border text-navanc-textTertiary">
-      <legend className=" ml-3 px-1 text-sm">
-        {" "}
+      <legend className="ml-3 px-1 text-sm">
         {label} {required && <span className="text-black">*</span>}
       </legend>
       <div className="flex items-center gap-2">

@@ -1,5 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const DropDown = ({ options, value, setValue, title, disabled = false }) => {
   const [open, setOpen] = useState(false);
@@ -7,10 +7,7 @@ const DropDown = ({ options, value, setValue, title, disabled = false }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current?.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpen(false);
       }
     };
@@ -33,7 +30,7 @@ const DropDown = ({ options, value, setValue, title, disabled = false }) => {
   return (
     <div className="relative" ref={dropdownRef}>
       <fieldset className="rounded-lg border text-navanc-textTertiary">
-        <legend className=" ml-3 px-1 text-sm">{title}</legend>
+        <legend className="ml-3 px-1 text-sm">{title}</legend>
         <button
           className="w-full flex items-center justify-between py-2 px-2 cursor-pointer"
           type="button"

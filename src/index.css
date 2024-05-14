@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,4 +6,26 @@
 
 body {
   font-family: "Nunito", sans-serif;
+}
+
+.gradientBtn {
+  @apply py-2 px-5 text-white bg-gradient-to-b from-navanc-primary to-navanc-secondary rounded-lg text-center font-medium  flex items-center justify-center gap-2;
+}
+
+.gradientBtn2 {
+  @apply text-white bg-gradient-to-b from-navanc-primary to-navanc-secondary rounded-lg text-center font-medium  flex items-center justify-center gap-2;
+}
+/* Hide scrollbar track and thumb */
+::-webkit-scrollbar {
+  width: 0;  /* Set width to 0 to hide the scrollbar completely */
+}
+
+/* Optional: If you want to hide the scrollbar only when inactive */
+/* You can adjust the visibility based on your preference */
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Make the thumb transparent */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the track transparent */
 }

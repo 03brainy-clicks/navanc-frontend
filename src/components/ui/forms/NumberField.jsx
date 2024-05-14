@@ -1,10 +1,7 @@
-import React from "react";
-
 const NumberField = ({ label, value, setValue, required = false }) => {
   return (
     <fieldset className="rounded-lg border text-navanc-textTertiary py-1 pb-2">
-      <legend className=" ml-3 px-1 text-sm">
-        {" "}
+      <legend className="ml-3 px-1 text-sm">
         {label} {required && <span className="text-black">*</span>}
       </legend>
 
@@ -16,7 +13,7 @@ const NumberField = ({ label, value, setValue, required = false }) => {
         <input
           required={required}
           type="text"
-          className="border-none outline-none px-2 rounded-lg w-full "
+          className="border-none outline-none px-2 rounded-lg w-full"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />

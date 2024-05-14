@@ -5,8 +5,7 @@ import {
 import { useState } from "react";
 
 const Sidebar = () => {
-  const [toggle, setToggle] = useState(false);
-
+const [toggle,setToggle] = useState()
   return (
     <div className="p-4 py-10 h-full bg-navanc-darkpurple text-navanc-textTertiary text-sm space-y-7 hidden sm:block">
       <div className=" cursor-pointer text-white">

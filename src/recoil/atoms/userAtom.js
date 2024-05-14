@@ -2,18 +2,14 @@ import { atom } from "recoil";
 
 // Define initial value
 const initialAuthState = {
-  token: "",
   username: "",
-  user_id: null,
-  role: "",
   name: "",
-  url: "https://navanc-backend.onrender.com",
 };
 
 // Define authentication atom
-const authAtom = atom({
-  key: "authState",
+const userAtom = atom({
+  key: "userState",
   default: initialAuthState,
 });
 
-export default authAtom;
+export default userAtom;
