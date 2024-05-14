@@ -48,13 +48,13 @@ const CreateLead = () => {
       ) {
         const leadData = {
           lead_number: uuidv4(),
-          applicant_firstName: firstname,
-          applicant_lastName: lastname,
+          applicant_firstname: firstname,
+          applicant_lastname: lastname,
           applicant_number: mobile1,
           applicant_number2: mobile2,
           applicant_address1: address,
           applicant_address2: address2,
-          distric: district.title,
+          district: district.title,
           state: state.title,
           pincode: pincode,
           generated_by_id: auth.user_id,

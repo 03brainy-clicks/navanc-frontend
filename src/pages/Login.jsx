@@ -77,7 +77,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button className="gradientBtn w-full" onClick={handleLogin}>
-                <div>{isLoading && <Loader/>}</div> Submit
+                <div>{isLoading && <Loader />}</div> Submit
                 <div></div>
               </button>
             </form>

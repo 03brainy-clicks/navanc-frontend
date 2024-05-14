@@ -1,7 +1,6 @@
 import { DocumentIcon, HomeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
-import { v4 as uuidv4 } from "uuid";
 import { useRecoilValue } from "recoil";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -30,11 +29,11 @@ const CreateLead = () => {
   const { lead_number } = useParams();
   const { token } = useRecoilValue(authAtom);
   const { isPending, data } = useQuery({
-    queryKey: ["updatelead", token, lead_number ],
+    queryKey: ["updatelead", token, lead_number],
     queryFn: () => QueryFn(token, lead_number),
   });
 
-  const [firstname, setFirstname] = useState();
+  const [firstname, setFirstname] = useState("");
   const [lastname, setLastName] = useState("");
   const [mobile1, setMobile1] = useState("");
   const [mobile2, setMobile2] = useState("");
@@ -67,21 +66,19 @@ const CreateLead = () => {
         district.title
       ) {
         const leadData = {
-          lead_number: uuidv4(),
-          applicant_firstName: firstname,
-          applicant_lastName: lastname,
+          applicant_firstname: firstname,
+          applicant_lastname: lastname,
           applicant_number: mobile1,
           applicant_number2: mobile2,
           applicant_address1: address,
           applicant_address2: address2,
-          distric: district.title,
+          district: district.title,
           state: state.title,
           pincode: pincode,
-          generated_by_id: auth.user_id,
         };
 
-        await axios.post(
-          "https://navanc-backend.onrender.com/leads/",
+        await axios.put(
+          `https://navanc-backend.onrender.com/leads/${lead_number}`,
           leadData,
           {
             headers: {
@@ -91,7 +88,7 @@ const CreateLead = () => {
         );
 
         setIsLoading((prev) => !prev);
-        toast.success("Lead Generated");
+        toast.success("Lead Updated");
         navigate("/tracker");
       } else {
         console.error("All fields are required");
@@ -99,19 +96,30 @@ const CreateLead = () => {
         setIsLoading((prev) => !prev);
       }
     } catch (error) {
-      console.error("Error creating lead:", error);
+      console.error("Error updating lead:", error);
       setIsLoading((prev) => !prev);
     }
   };
 
-useEffect(()=>{
-if(data){
- setFirstname(data.applicant_firstName)
- setLastName(data.applicant_lastName)
- setAddress(data.applicant_address1);
-
-}
-},[])
+  useEffect(() => {
+    if (data) {
+      setFirstname(data.applicant_firstname);
+      setLastName(data.applicant_lastname);
+      setAddress(data.applicant_address1);
+      setAddress2(data.applicant_address2);
+      setMobile1(data.applicant_number);
+      setMobile2(data.applicant_address2);
+      setPincode(data.pincode);
+      setState({
+        title: data.state,
+        value: data.state.split(" ").join("").toLowerCase(),
+      });
+      setDistrict({
+        title: data.district,
+        value: data.district.split(" ").join("").toLowerCase(),
+      });
+    }
+  }, [data]);
 
   return (
     <div className="w-full  rounded-lg p-8 flex items-center justify-center bg-[#f3f5fb]">
@@ -135,7 +143,7 @@ if(data){
                 <TextField
                   label={"First name"}
                   required={true}
-                  value={firstname?firstname:data.applicant_firstName}
+                  value={firstname}
                   setValue={setFirstname}
                 />
                 <TextField
