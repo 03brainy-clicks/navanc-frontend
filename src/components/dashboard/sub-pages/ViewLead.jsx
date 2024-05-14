@@ -74,16 +74,16 @@ const Page = () => {
         </div>
       </div>
       {/* ---------------- down --------------- */}
-      <div className="bg-white mx-7 px-8 rounded-lg py-5">
+      <div className="bg-white mx-5 px-8 rounded-lg py-5">
         {/* personal details  */}
-        <div className="flex py-7 items-start">
-          <div className="w-96 flex items-center gap-2">
+        <div className="flex md:flex-row flex-col py-7 items-start">
+          <div className="lg:w-96 md:w-56  wflex items-center gap-2">
             {" "}
             <UserIcon className="w-6 h-6 text-navanc-secondary" />{" "}
             <span>Personal Details</span>
           </div>
           <div className="flex-1">
-            <div className="flex items-center gap-2">
+            <div className="md:flex items-center gap-2 hidden">
               {" "}
               <UserIcon className="w-6 h-6 text-navanc-secondary" />{" "}
               <span>Personal Details</span>
@@ -101,14 +101,14 @@ const Page = () => {
           </div>
         </div>{" "}
         {/* Residential details  */}
-        <div className="flex items-start py-7 border-t">
-          <div className="w-96 flex items-center gap-2">
+        <div className="flex items-start md:flex-row flex-col  py-7 border-t">
+          <div className="lg:w-96 md:w-56 flex items-center gap-2">
             {" "}
             <HomeIcon className="w-6 h-6 text-navanc-secondary" />{" "}
             <span>Residential Details</span>
           </div>
           <div className="flex-1 ">
-            <div className="flex items-center gap-2">
+            <div className="md:flex items-center gap-2 hidden">
               {" "}
               <HomeIcon className="w-6 h-6 text-navanc-secondary" />{" "}
               <span>Residential Details</span>
@@ -122,14 +122,14 @@ const Page = () => {
           </div>
         </div>
         {/* Document Upload  */}
-        <div className="flex items-start py-7 border-t">
-          <div className="w-96 flex items-center gap-2">
+        <div className="flex md:flex-row flex-col items-start py-7 border-t">
+          <div className="lg:w-96 md:w-56 flex items-center gap-2">
             {" "}
             <DocumentTextIcon className="w-6 h-6 text-navanc-secondary" />{" "}
             <span>Documents</span>
           </div>
           <div className="flex-1 space-y-7">
-            <div className="flex items-center gap-2">
+            <div className="md:flex items-center gap-2 hidden">
               {" "}
               <DocumentTextIcon className="w-6 h-6 text-navanc-secondary" />{" "}
               <span>Documents</span>
