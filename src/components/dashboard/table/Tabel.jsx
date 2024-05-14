@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 import authAtom from "../../../recoil/atoms/authAtom";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../ui/utils/Loader";
 
 const QueryFn = async (token, role, user_id, setLeads) => {
   const response = await axios.get(
@@ -27,10 +28,9 @@ const Table = () => {
   });
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
 
-
-  if (isPending) return "Loading";
+ 
 
   const filters = [
     {
@@ -74,6 +74,8 @@ const Table = () => {
   const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, filteredRows.length);
+
+  if (isPending) return <Loader/>;
 
   return (
     <div className="bg-white rounded-xl mt-8">

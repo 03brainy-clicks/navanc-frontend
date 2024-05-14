@@ -55,7 +55,7 @@ const Login = () => {
             <div>
               <DevicePhoneMobileIcon className="w-14" />
               <h3 className="text-2xl font-bold text-navanc-textPrimary nunito mt-5">
-                Login to XYZ
+                Login to Navanc
               </h3>
               <p className="text-navanc-textSecondary mt-2 font-medium ">
                 Enter your details to get started
