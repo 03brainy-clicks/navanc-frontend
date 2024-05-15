@@ -15,7 +15,7 @@ const Row = ({
   lead_number,
   handleUpdateStatus,
 }) => {
-  const auth = useRecoilState(authAtom);
+  const {role} = useRecoilState(authAtom);
 
   const handleUpdate = async (lead, token) => {
     try {
@@ -41,7 +41,7 @@ const Row = ({
       <td className="px-2 py-5">+91 {contact}</td>
       <td className="px-2 py-5">
         <div className="relative">
-          {auth?.role === "admin" && status === "generated" ? (
+          {role=== "admin" && status === "generated" ? (
             <div className=" relative">
               <Dropdown handleUpdate={handleUpdate} lead_number={lead_number} />
             </div>
