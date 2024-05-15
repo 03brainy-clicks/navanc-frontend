@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { EyeIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useRecoilState } from "recoil";
@@ -15,7 +14,8 @@ const Row = ({
   lead_number,
   handleUpdateStatus,
 }) => {
-  const {role} = useRecoilState(authAtom);
+  const auth = useRecoilState(authAtom);
+  console.log(auth[0].role)
 
   const handleUpdate = async (lead, token) => {
     try {
@@ -41,7 +41,7 @@ const Row = ({
       <td className="px-2 py-5">+91 {contact}</td>
       <td className="px-2 py-5">
         <div className="relative">
-          {role=== "admin" && status === "generated" ? (
+          {auth[0].role=== "admin" && status === "generated" ? (
             <div className=" relative">
               <Dropdown handleUpdate={handleUpdate} lead_number={lead_number} />
             </div>
