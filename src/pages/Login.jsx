@@ -20,6 +20,7 @@ const Login = () => {
   const setAuthState = useSetRecoilState(authAtom);
   const setUserState = useSetRecoilState(userAtom);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   // * handle Login
   const handleLogin = async (e) => {
@@ -80,6 +81,26 @@ const Login = () => {
                 <div>{isLoading && <Loader />}</div> Submit
                 <div></div>
               </button>
+              <div className="mt-10 text-xs text-gray-400">
+                <div
+                  className="text-xs mt-5 cursor-pointer underline"
+                  onClick={() => setShow(!show)}
+                >
+                 {show?"Hide":"Show"}
+                </div>
+                {show && (
+                  <>
+                    <div className="mt-2">
+                      <div>Admin</div>
+                      <div>Username: admin, Password: Admin@01</div>
+                    </div>
+                    <div className="mt-2">
+                      <div>User</div>
+                      <div>Username: John, Password: John@01</div>
+                    </div>
+                  </>
+                )}
+              </div>
             </form>
           </div>
           <div className="flex mt-10">
