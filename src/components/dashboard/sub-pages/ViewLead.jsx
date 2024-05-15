@@ -57,12 +57,12 @@ const Page = () => {
                 </div>
               )}
             </div>
-            <div className=" mt-2 w-full flex gap-5">
+            <div className=" mt-2 w-full flex md:flex-row flex-col md:gap-5 gap-3">
               <span className="flex-1 line-clamp-1">
                 {data?.applicant_address1}, {data?.applicant_address2},{" "}
                 {data.district}, {data.state}, {data.pincode}
               </span>
-              <span>·</span>
+              <span className="hidden md:block">·</span>
               <span>+91 {data.applicant_number} </span>
             </div>
           </div>
@@ -77,7 +77,7 @@ const Page = () => {
       <div className="bg-white mx-5 px-8 rounded-lg py-5">
         {/* personal details  */}
         <div className="flex md:flex-row flex-col py-7 items-start">
-          <div className="lg:w-96 md:w-56  wflex items-center gap-2">
+          <div className="lg:w-96 md:w-56 flex items-center gap-2">
             {" "}
             <UserIcon className="w-6 h-6 text-navanc-secondary" />{" "}
             <span>Personal Details</span>

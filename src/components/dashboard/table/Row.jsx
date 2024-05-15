@@ -1,13 +1,11 @@
 import { useState } from "react";
-import {
-  ChevronDownIcon,
-  EyeIcon,
-  PencilSquareIcon,
-} from "@heroicons/react/24/outline";
+import { EyeIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import authAtom from "../../../recoil/atoms/authAtom";
 import { Link } from "react-router-dom";
+import Dropdown from "../../ui/utils/Dropdown";
+import toast from "react-hot-toast";
 
 const Row = ({
   name,
@@ -17,21 +15,21 @@ const Row = ({
   lead_number,
   handleUpdateStatus,
 }) => {
-  const [toggle, setToggle] = useState(false);
   const auth = useRecoilState(authAtom);
 
-  const handleUpdate = async () => {
-    await axios.put(
-      `http://localhost:8080/lead/status/${lead_number}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      }
-    );
-    handleUpdateStatus(lead_number);
-    setToggle((prev) => !prev);
+  const handleUpdate = async (lead, token) => {
+    try {
+      await axios.put(
+        `https://navanc-backend.onrender.com/leads/status/${lead}`,
+        "",
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      handleUpdateStatus(lead);
+      toast("Status Updated");
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
   };
 
   return (
@@ -44,21 +42,18 @@ const Row = ({
       <td className="px-2 py-5">
         <div className="relative">
           {auth?.role === "admin" && status === "generated" ? (
-            <button
-              className="py-1 px-2 sm:px-5  bg-green-50 border border-green-500 rounded-lg text-green-500  flex gap-3 relative items-center w-40 "
-              onClick={() => setToggle((prev) => !prev)}
-            >
-              <span> Generated</span> <ChevronDownIcon className="w-5 h-5 " />
-            </button>
+            <div className=" relative">
+              <Dropdown handleUpdate={handleUpdate} lead_number={lead_number} />
+            </div>
           ) : (
             <>
               {status !== "generated" ? (
-                <button className="py-1 px-2 sm:px-6  bg-purple-50 border border-purple-500 rounded-lg text-purple-500 w-40">
+                <button className="py-1 px-2 sm:px-6  bg-purple-50 border border-purple-500 rounded-lg text-purple-500 min-w-48">
                   Acknowledged
                 </button>
               ) : (
                 <>
-                  <button className="py-1 px-2 sm:px-5 bg-green-50 border border-green-500 rounded-lg text-green-500 w-40">
+                  <button className="py-1 px-2 sm:px-5 bg-green-50 border border-green-500 rounded-lg text-green-500 min-w-48 ">
                     Generated
                   </button>
                 </>

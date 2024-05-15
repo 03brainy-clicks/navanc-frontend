@@ -101,7 +101,7 @@ const Table = () => {
       <div className="p-8 flex-1">
         <div className="rounded-lg flex flex-col border w-full">
           <div className="w-full overflow-x-auto">
-            <table className="w-full min-w-[800px] overflow-x-auto">
+            <table className="w-full min-w-[900px] overflow-x-auto">
               <thead className="border-b">
                 <tr className="uppercase text-navanc-textTertiary font-normal text-sm border-b">
                   <td className="py-5 px-2">Lead Name</td>
